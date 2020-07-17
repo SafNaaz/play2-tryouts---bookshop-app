@@ -14,4 +14,6 @@ scalaVersion := "2.13.3"
 libraryDependencies ++= Seq(
   javaJdbc,
   cacheApi,
-  guice)
+  guice,
+  javaWs
+)

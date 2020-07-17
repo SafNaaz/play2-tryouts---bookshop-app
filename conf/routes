@@ -18,5 +18,7 @@ POST    /bookshop/book/save/comment/        controllers.Application.saveComment(
 #Search a book by Title
 GET     /bookshop/book/search/              controllers.Application.searchByTitle(keyword:String)
 
+GET     /bookshop/book/echo                 controllers.Application.echoService
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

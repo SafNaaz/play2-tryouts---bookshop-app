@@ -1,12 +1,15 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import play.data.DynamicForm;
 import play.data.FormFactory;
+import play.libs.ws.*;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
 
 import javax.inject.Inject;
+import java.util.concurrent.CompletionStage;
 
 public class Application extends Controller {
 
@@ -46,4 +49,13 @@ public class Application extends Controller {
         //Query db and get the book details or get from cache
         return ok(views.html.searcheresults.render());
     }
+
+    @Inject WSClient ws;
+
+    public CompletionStage<Result> echoService(){
+        return ws.url("http://www.mocky.io/v2/53c7ec8426e0e3fd14326b0d")
+                .get()
+                .thenApply(response -> ok("Feed Response: "+response.getBody()));
+    }
+
 }
