@@ -11,4 +11,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava).settings(
 
 scalaVersion := "2.13.3"
 
-libraryDependencies += guice
+libraryDependencies ++= Seq(
+  javaJdbc,
+  cacheApi,
+  guice)
